@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="InfiniteScroll.Views.ItemsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:InfiniteScroll.ViewModels"
+    xmlns:model="clr-namespace:InfiniteScroll.Models"
+    xmlns:scroll="clr-namespace:InfiniteScroll.InfiniteScrollModule"
+    x:Name="BrowseItemsPage"
+    Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddItemCommand}" Text="Add" />
+    </ContentPage.ToolbarItems>
+    <!--
+        x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <ListView
+        CachingStrategy="RecycleElement"
+        IsPullToRefreshEnabled="True"
+        IsRefreshing="{Binding IsBusy}"
+        ItemsSource="{Binding Items}"
+        RefreshCommand="{Binding RefreshCommand}"
+        SelectionMode="None">
+        <!--  the behavior that will enable infinite scrolling  -->
+        <ListView.Behaviors>
+            <scroll:InfiniteScrollBehavior IsLoadingMore="{Binding IsBusy}" />
+        </ListView.Behaviors>
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="10">
+                        <Label
+                            FontSize="16"
+                            LineBreakMode="NoWrap"
+                            Text="{Binding Text}" />
+                        <Label
+                            FontSize="13"
+                            LineBreakMode="NoWrap"
+                            Text="{Binding Description}" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"
+                                CommandParameter="{Binding .}"
+                                NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+
+        <!--  the "loading..." view  -->
+        <ListView.Footer>
+            <Grid Padding="6" IsVisible="{Binding IsBusy}">
+                <!--  set the footer to have a zero height when invisible  -->
+                <Grid.Triggers>
+                    <Trigger TargetType="Grid" Property="IsVisible" Value="False">
+                        <Setter Property="HeightRequest" Value="0" />
+                    </Trigger>
+                </Grid.Triggers>
+                <!--  the loading content  -->
+                <Label
+                    HorizontalOptions="Center"
+                    Text="Loading..."
+                    VerticalOptions="Center" />
+            </Grid>
+        </ListView.Footer>
+
+    </ListView>
+</ContentPage>

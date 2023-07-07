@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfiniteScroll.Android", "InfiniteScroll.Android\InfiniteScroll.Android.csproj", "{DBD5A200-9C4B-4BA1-AA92-785E87B405C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfiniteScroll", "InfiniteScroll\InfiniteScroll.csproj", "{F93A6689-EBDC-495F-991A-14CB00FF92AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DBD5A200-9C4B-4BA1-AA92-785E87B405C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBD5A200-9C4B-4BA1-AA92-785E87B405C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBD5A200-9C4B-4BA1-AA92-785E87B405C6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DBD5A200-9C4B-4BA1-AA92-785E87B405C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBD5A200-9C4B-4BA1-AA92-785E87B405C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBD5A200-9C4B-4BA1-AA92-785E87B405C6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F93A6689-EBDC-495F-991A-14CB00FF92AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93A6689-EBDC-495F-991A-14CB00FF92AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93A6689-EBDC-495F-991A-14CB00FF92AB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F93A6689-EBDC-495F-991A-14CB00FF92AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93A6689-EBDC-495F-991A-14CB00FF92AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F93A6689-EBDC-495F-991A-14CB00FF92AB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F03E46F7-8503-426E-8FAD-93EBE141BB20}
+	EndGlobalSection
+EndGlobal
